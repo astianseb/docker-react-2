@@ -10,7 +10,7 @@ script:
 deploy:
   provider: gae
   keyfile: client-secret.json
-  project: docker-react-2
+  project: crypto-avenue-255414
   edge: true
   on:
     branch: master
