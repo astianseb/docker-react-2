@@ -1,0 +1,24 @@
+sudo: required
+services:
+    - docker
+
+before_install: 
+    # Good practice is to add tag <docker_username/repo_name>
+    - docker build -t astianseb/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run -e CI=true astianseb/docker-react npm run test
+
+deploy:
+    provider: elasticbeanstalk
+    region: "eu-west-1"
+    app: "docker-react"
+    env: "DockerReact-env"
+    bucket_name: "elasticbeanstalk-eu-west-1-455234846450"
+    bucket_path: "docker-react"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+
+# DockerReact-env.eba-jwgazbdm.eu-west-1.elasticbeanstalk.com 

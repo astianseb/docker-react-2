@@ -1,0 +1,15 @@
+sudo: required
+services:
+    - docker
+
+before_install: 
+    # Good practice is to add tag <docker_username/repo_name>
+    - docker build -t astianseb/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run -e CI=true astianseb/docker-react npm run test
+
+deploy:
+    provider: gae
+    keyfile:
+    project: 
