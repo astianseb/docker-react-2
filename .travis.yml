@@ -2,7 +2,7 @@ sudo: required
 services:
 - docker
 before_install:
-- openssl aes-256-cbc -K $encrypted_41ea417a1547_key -iv $encrypted_41ea417a1547_iv
+- openssl aes-256-cbc -K $encrypted_36d18748ef97_key -iv $encrypted_36d18748ef97_iv
   -in client-secret.json.enc -out client-secret.json -d
 - docker build -t astianseb/docker-react -f Dockerfile.dev .
 script:
@@ -10,7 +10,7 @@ script:
 deploy:
   provider: gae
   keyfile: client-secret.json.enc
-  project: crypto-avenue-255414
+  project: docker-react-2
   edge: true
   on:
     branch: master
