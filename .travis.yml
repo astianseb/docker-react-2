@@ -9,7 +9,7 @@ script:
 - docker run -e CI=true astianseb/docker-react npm run test
 deploy:
   provider: gae
-  keyfile: client-secret.json.enc
+  keyfile: client-secret.json
   project: docker-react-2
   edge: true
   on:
