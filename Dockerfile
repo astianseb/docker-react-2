@@ -27,7 +27,7 @@ RUN mkdir -p /usr/share/nginx/www/_ah && \
     echo "healthy" > /usr/share/nginx/www/_ah/health
 
 # Finally, all static assets.
-ADD www/ /usr/share/nginx/www/
+RUN mkdir -p /usr/share/nginx/www/
 RUN chmod -R a+r /usr/share/nginx/www
 
 
